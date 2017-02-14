@@ -8,11 +8,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RefreshScope
 public class MySampleRestController {
-	@Value("${test}")
+	@Value("${my-config.appName}")
 	private String appName;
+	
+	@Value("${test}")
+	private String test;
 	
 	@RequestMapping("/app-name")
 	public String getAppName() {
-		return appName;
+		return appName+test;
 	}
 }
