@@ -2,9 +2,19 @@ server:
   port: 8887
 spring:
   application:
-    name: test,testPro
+    name: clientConf
   profiles:
     active: dev
   cloud:
     config:
-      uri: http://localhost:8888
+      name: test,testPro
+      discovery:
+         enabled: true
+      serviceId: configService
+      
+eureka:
+    client:
+      serviceUrl:
+          defaultZone: http://localhost:8011/eureka/
+
+      
